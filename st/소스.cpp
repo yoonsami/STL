@@ -1,5 +1,6 @@
 #include "PCH.h"
-#include "MyVector.h"
+//#include "MyVector.h"
+#include "MyList.h"
 
 
 int main()
@@ -23,6 +24,30 @@ int main()
 		cout << *it << endl;
 	}*/
 
+	MyList<int> li;
+	MyList<int>::Iterator eraseIt;
+
+	for (int i = 0; i < 10; i++)
+	{
+		if (i == 5)
+		{
+			eraseIt = li.Insert(li.End(), i);
+		}
+		else
+		{
+			li.Push_back(i);
+		}
+	}
+
+	li.Pop_back();
+
+	li.erase(eraseIt);
+
+	for (MyList<int>::Iterator it = li.Begin(); it != li.End(); ++it)
+	{
+		cout << (*it) << endl;
+	}
 
 
+	return 0;
 }
