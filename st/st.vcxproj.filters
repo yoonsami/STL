@@ -19,14 +19,11 @@
     <Filter Include="MyList">
       <UniqueIdentifier>{ecd7a470-fad3-473a-95d2-f2dadc9547a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MyQueue">
+      <UniqueIdentifier>{9e8127e2-bd72-4ce6-ac44-1ecd34c019e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="과제 - 20230220.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="소스.cpp">
-      <Filter>MakeMyVector</Filter>
-    </ClCompile>
     <ClCompile Include="MyVector.cpp">
       <Filter>MakeMyVector</Filter>
     </ClCompile>
@@ -35,6 +32,12 @@
     </ClCompile>
     <ClCompile Include="MyList.cpp">
       <Filter>MyList</Filter>
+    </ClCompile>
+    <ClCompile Include="소스.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MyQueue.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -46,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="MyList.h">
       <Filter>MyList</Filter>
+    </ClInclude>
+    <ClInclude Include="MyQueue.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
