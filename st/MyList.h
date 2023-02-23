@@ -25,9 +25,9 @@ public:
 	bool operator==(const MyIterator& rhs) { return _node == rhs._node; }
 	bool operator!=(const MyIterator& rhs) { return !(_node == rhs._node); }
 	MyIterator& operator++() { _node = _node->_next; return *this; }
-	MyIterator operator++(int) { MyIterator<T> tmp(_node);  _node = _node->_next; return tmp; }
+	MyIterator operator++(int) { MyIterator<T> tmp  = *this;  _node = _node->_next; return tmp; }
 	MyIterator& operator--() { _node = _node->_prev; return *this; }
-	MyIterator operator--(int) { MyIterator<T> tmp(_node);  _node = _node->_prev; return tmp; }
+	MyIterator operator--(int) { MyIterator<T> tmp = *this;  _node = _node->_prev; return tmp; }
 	T& operator*() { return _node->data; }
 
 public:
@@ -52,16 +52,16 @@ public:
 			Pop_back();
 		}
 	}
-	// [1] [2] [beforeNode] [header]
-	// [1] [2] [beforeNode] [newNode] [header] <-> [1]
+	// [1] [2] [] [header]
+	// [1] [2] [] [newNode] [header] <-> [1]
 
 	Node<T>* Delete(Node<T>* targetNode)
 	{
-		Node<T>* beforeNode = targetNode->_prev;
+		Node<T>* prevNode = targetNode->_prev;
 		Node<T>* nextNode = targetNode->_next;
 
-		beforeNode->_next = nextNode;
-		nextNode->_prev = beforeNode;
+		prevNode->_next = nextNode;
+		nextNode->_prev = prevNode;
 		--_size;
 		delete targetNode;
 		return nextNode;
@@ -70,20 +70,20 @@ public:
 	Node<T>* Add(Node<T>* beforeNode, const T& value)
 	{
 		Node<T>* newNode = new Node<T>(value);
-		Node<T>* nextNode = beforeNode->_next;
 
-		beforeNode->_next = newNode;
-		newNode->_prev = beforeNode;
+		Node<T>* prevNode = beforeNode->_prev;
+		prevNode->_next = newNode;
+		newNode->_prev = prevNode;
 
-		nextNode->_prev = newNode;
-		newNode->_next = nextNode;
+		beforeNode->_prev = newNode;
+		newNode->_next = beforeNode;
 		++_size;
 		return newNode;
 	}
 
 	void Push_back(const T& value)
 	{
-		Add(_header->_prev, value);
+		Add(_header, value);
 	}
 
 	void Pop_back()

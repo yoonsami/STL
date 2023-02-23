@@ -34,7 +34,7 @@
       <Filter>헤더 파일</Filter>
     </ClCompile>
     <ClCompile Include="MyList.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>MyList</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -45,7 +45,7 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="MyList.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>MyList</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
