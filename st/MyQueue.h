@@ -24,7 +24,7 @@ template <typename T>
 class MyQueue
 {
 public:
-	MyQueue() : _size(0)
+	MyQueue() : _size(0), _head(nullptr),_tail(nullptr),_rear(nullptr)
 	{
 		_head = new MyNode<T>;
 		_tail = new MyNode<T>;
